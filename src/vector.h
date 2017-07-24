@@ -21,7 +21,7 @@ namespace zrt
 			// cend();
 			
 			// capacity
-			// size();
+			size_t size();
 			// capacity();
 			// empty();
 			// max_size();
@@ -36,6 +36,7 @@ namespace zrt
 		private:
 		
 			T* arr;
+            size_t count;
 			
 			// resize();
 	};
@@ -56,7 +57,14 @@ namespace zrt
 	void vector<T>::push_back(const T &val) 
 	{
 		// TODO
+        count++;
 	}
+
+    template <typename T>
+    size_t vector<T>::size()
+    {
+        return count;
+    }
 	
 } // namespace zrt 
 
