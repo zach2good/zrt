@@ -51,6 +51,8 @@ namespace zrt
 						// No Carry
 					}
 				}
+                
+                return "";
 			}
 			
 			std::string toString()
