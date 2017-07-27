@@ -6,7 +6,6 @@ model {
     // Dependencies
     repositories {
         libs(PrebuiltLibraries) {
-            // ===
         }
     }
 
@@ -23,6 +22,12 @@ model {
         }
         x64 {
             architecture "x86_64"
+        }
+    }
+    
+    binaries {
+        withType(GoogleTestTestSuiteBinarySpec) {
+            lib library: "googleTest", linkage: "static"
         }
     }
 
