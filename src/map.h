@@ -3,7 +3,15 @@
 
 namespace zrt
 {
+    template <class T>
+    class map {
+    private:
 
+
+    public:
+
+
+    };
 } // namespace zrt 
 
 #endif // ZRT_SIMD
