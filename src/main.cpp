@@ -27,8 +27,31 @@ int main()
     zrt::linkedlist<int> ll;
     assert(ll.empty());
 
-    ll.insert_tail(1);
+    ll.insert(1);
     assert(ll.size() == 1);
+
+    ll.insert(2);
+    assert(ll.size() == 2);
+
+    for (size_t i = 0; i < 100; i++)
+    {
+        ll.insert(i);
+    }
+    assert(ll.size() == 102);
+
+    assert(ll.at(0) == 1);
+    assert(ll.at(1) == 2);
+    assert(ll.at(2) == 0);
+    assert(ll.at(3) == 1);
+    assert(ll.at(4) == 2);
+    assert(ll.at(5) == 3);
+    assert(ll.at(10) == 8);
+
+    assert(!ll.at(ll.size()));
+
+    ll.remove(0);
+    assert(ll.size() == 101);
+    assert(ll.at(0) == 2);
 
     // Test Map
 
