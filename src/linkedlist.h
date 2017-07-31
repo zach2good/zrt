@@ -1,25 +1,25 @@
 #ifndef ZRT_LINKEDLIST
 #define ZRT_LINKEDLIST
 
+#include <stdexcept>
+
 namespace zrt {
-template <class T>
-struct node {
-    T data;
-    node<T>* next;
-
-    node(T val) :
-        data(val),
-        next(nullptr) {}
-
-    node(T val, node<T>* ptr) :
-        data(val),
-        next(ptr) {}
-};
 
     template <class T>
     class linkedlist {
+    private:
 
-        
+        template <class T>
+        struct node {
+            T data;
+            node<T>* next;
+            node<T>* prev;
+
+            node(T val) :
+                data(val),
+                next(nullptr),
+                prev(nullptr) {}
+        };
 
     public:
 
@@ -50,9 +50,16 @@ struct node {
             // Otherwise...
             else
             {
+                auto old_tail = _tail;
                 auto new_node = new node<T>(value);
-                _tail->next = new_node;
+
+                // Replace
                 _tail = new_node;
+
+                // Hook up
+                _tail->prev = old_tail;
+                old_tail->next = new_node;
+
             }
 
             _size += 1;
@@ -60,6 +67,11 @@ struct node {
 
         T at(int i)
         {
+            if (i >= _size)
+            {
+                throw std::out_of_range("");
+            }
+
             _cursor = _head;
             int counter = 0;
             while (_cursor->next != nullptr)
@@ -73,7 +85,7 @@ struct node {
                 {
                     _cursor = _cursor->next;
                     counter += 1;
-                }    
+                }
             }
 
             // Throw exception?

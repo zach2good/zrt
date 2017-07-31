@@ -47,8 +47,6 @@ int main()
     assert(ll.at(5) == 3);
     assert(ll.at(10) == 8);
 
-    assert(!ll.at(ll.size()));
-
     ll.remove(0);
     assert(ll.size() == 101);
     assert(ll.at(0) == 2);
