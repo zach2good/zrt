@@ -15,7 +15,7 @@ namespace zrt {
             node<T>* next;
             node<T>* prev;
 
-            node(T val) :
+            node(const T& val) :
                 data(val),
                 next(nullptr),
                 prev(nullptr) {}
@@ -31,15 +31,26 @@ namespace zrt {
             // ===
         }
 
-        linkedlist<T>(T val) :
+        linkedlist<T>(const T& val) :
             _head(nullptr),
             _tail(nullptr),
             _size(0)
         {
-
+            insert(val);
         }
 
-        void insert(T value)
+        ~linkedlist<T>()
+        {
+            _cursor = _head;
+            while (_cursor->next != nullptr)
+            {
+                auto next = _cursor->next;
+                delete _cursor;
+                _cursor = next;
+            }
+        }
+
+        void insert(const T& value)
         {
             // List is empty
             if (_head == nullptr)
@@ -107,12 +118,12 @@ namespace zrt {
             }
         }
 
-        size_t size()
+        size_t size() const
         {
             return _size;
         }
 
-        bool empty()
+        bool empty() const
         {
             return (_size == 0);
         }
