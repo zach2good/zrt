@@ -33,7 +33,7 @@ int main()
     ll.insert(2);
     assert(ll.size() == 2);
 
-    for (size_t i = 0; i < 100; i++)
+    for (int i = 0; i < 100; i++)
     {
         ll.insert(i);
     }

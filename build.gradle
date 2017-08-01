@@ -78,6 +78,10 @@ model {
                         cppCompiler.args "/Zi"
                         cppCompiler.args "/MTd"
                         cppCompiler.args "/Od"
+                        
+                        cppCompiler.args "/W3" // All warnings
+                        cppCompiler.args "/WX" // Warnings as errors
+                        
 						linker.args "/SUBSYSTEM:CONSOLE"
 
                     } else {

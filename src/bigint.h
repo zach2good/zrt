@@ -32,7 +32,7 @@ namespace zrt
 			// Operators
 			inline bigint operator+(const bigint& other)
 			{
-				int length = (this->m_strInternal.length() > other.m_strInternal.length()) ? 
+				size_t length = (this->m_strInternal.length() > other.m_strInternal.length()) ? 
 					this->m_strInternal.length() : other.m_strInternal.length();
 				
 				int carry = 0;

@@ -99,7 +99,7 @@ namespace zrt {
                 }
             }
 
-            // Throw exception?
+            throw std::exception("You should not have gotten here, how have you done this?");
             return NULL;
         }
 
