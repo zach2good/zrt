@@ -35,8 +35,8 @@ namespace zrt
 				size_t length = (this->m_strInternal.length() > other.m_strInternal.length()) ? 
 					this->m_strInternal.length() : other.m_strInternal.length();
 				
-				int carry = 0;
-				for (int i = 0; i < length; ++i)
+				//int carry = 0;
+				for (size_t i = 0; i < length; ++i)
 				{
 					if ( this->m_strInternal[i] && other.m_strInternal[i] )
 					{

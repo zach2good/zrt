@@ -76,7 +76,7 @@ namespace zrt {
             _size += 1;
         }
 
-        T at(int i)
+        T at(unsigned int i)
         {
             if (i >= _size)
             {
@@ -84,10 +84,9 @@ namespace zrt {
             }
 
             _cursor = _head;
-            int counter = 0;
+            unsigned int counter = 0;
             while (_cursor->next != nullptr)
             {
-                T data = _cursor->data;
                 if (counter == i)
                 {
                     return _cursor->data;
@@ -100,10 +99,9 @@ namespace zrt {
             }
 
             throw std::exception("You should not have gotten here, how have you done this?");
-            return NULL;
         }
 
-        void remove(int i)
+        void remove(unsigned int i)
         {
             if (i == 0) // Head
             {

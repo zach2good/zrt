@@ -58,6 +58,7 @@ namespace zrt
 	void vector<T>::push_back(const T &val) 
 	{
 		// TODO
+        _arr[0] = val;
         _size += 1;
 	}
 
