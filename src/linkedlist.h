@@ -2,20 +2,20 @@
 #define ZRT_LINKEDLIST
 
 #include <stdexcept>
-
+#include <string>
 namespace zrt {
 
-    template <class T>
+    template <typename T>
     class linkedlist {
     private:
 
-        template <class T>
+        template <typename D>
         struct node {
             T data;
             node<T>* next;
             node<T>* prev;
 
-            node(const T& val) :
+            node(const D& val) :
                 data(val),
                 next(nullptr),
                 prev(nullptr) {}
@@ -98,7 +98,8 @@ namespace zrt {
                 }
             }
 
-            throw std::exception("You should not have gotten here, how have you done this?");
+            throw std::range_error("");
+            //return NULL; 
         }
 
         void remove(unsigned int i)
@@ -116,7 +117,14 @@ namespace zrt {
             }
         }
 
-        size_t size() const
+        // Broken!
+        // https://stackoverflow.com/questions/21860674/implementing-begin-and-end-for-doubly-linked-list
+        T begin()
+        {
+            return _head->data;
+        }
+
+        std::size_t size() const
         {
             return _size;
         }
@@ -131,7 +139,7 @@ namespace zrt {
         node<T>* _tail;
         node<T>* _cursor;
 
-        size_t _size;
+        std::size_t _size;
     };
 
 } // namespace zrt 

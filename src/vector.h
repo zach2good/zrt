@@ -1,6 +1,8 @@
 #ifndef ZRT_VECTOR
 #define ZRT_VECTOR
 
+#include <cstddef>
+
 namespace zrt
 {
 	template <typename T>
@@ -36,7 +38,7 @@ namespace zrt
 		private:
 		
 			T* _arr;
-            size_t _size;
+            std::size_t _size;
 			
 			// resize();
 	};
@@ -63,7 +65,7 @@ namespace zrt
 	}
 
     template <typename T>
-    size_t vector<T>::size()
+    std::size_t vector<T>::size()
     {
         return _size;
     }

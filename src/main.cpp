@@ -7,6 +7,8 @@
 
 int main()
 {
+    std::cout << "Starting tests..." << std::endl;
+    
 	// Test Vector
 	zrt::vector<int> vec;
     assert(vec.size() == 0);
@@ -33,11 +35,11 @@ int main()
     ll.insert(2);
     assert(ll.size() == 2);
 
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 50; i++)
     {
         ll.insert(i);
     }
-    assert(ll.size() == 102);
+    assert(ll.size() == 52);
 
     assert(ll.at(0) == 1);
     assert(ll.at(1) == 2);
@@ -48,7 +50,7 @@ int main()
     assert(ll.at(10) == 8);
 
     ll.remove(0);
-    assert(ll.size() == 101);
+    assert(ll.size() == 51);
     assert(ll.at(0) == 2);
 
     // Test Map
@@ -56,6 +58,8 @@ int main()
     // Test Binary Search Tree
 
     // Test Sort
+    
+    std::cout << "Tests complete..." << std::endl;
 	
 	return 0;
 }
