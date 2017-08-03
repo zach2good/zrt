@@ -5,7 +5,7 @@ CC = g++
 CC_FLAGS = -O2 -std=c++11 -Wall
  
 # File names
-EXEC = run
+EXEC = build/run
 SOURCES = $(wildcard src/*.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
  
