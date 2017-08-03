@@ -2,6 +2,7 @@
 #define ZRT_VECTOR
 
 #include <cstddef>
+#include <cstring> // memcpy
 
 namespace zrt
 {
@@ -37,66 +38,66 @@ namespace zrt
 			
 		private:
 		
-			T* _arr;
-            std::size_t _size;
-            std::size_t _current_max_size;
-			
+            std::size_t m_size;
+            std::size_t m_current_max_size;
+            T* m_arr;
+
 			void resize();
 	};
 
 	template <typename T>
     vector<T>::vector() :
-        _arr(new T[4]),
-        _current_max_size(4),
-        _size(0)
+        m_size(0),
+        m_current_max_size(4),    
+        m_arr(new T[m_current_max_size])
 	{
 	}
 	
 	template <typename T>
 	vector<T>::~vector() 
 	{
-		delete[] _arr;
+		delete[] m_arr;
 	}
 	
 	template <typename T>
 	void vector<T>::push_back(const T& val) 
 	{
 		// Resize when needed
-        if (_size == _current_max_size - 1)
+        if (m_size == m_current_max_size - 1)
         {
-            _current_max_size <<= 2; // Pow2
+            m_current_max_size <<= 2; // Pow2
             resize();
         }
 
-        _arr[_size] = val;
-        _size += 1;
+        m_arr[m_size] = val;
+        m_size += 1;
 	}
 
     template <typename T>
     std::size_t vector<T>::size()
     {
-        return _size;
+        return m_size;
     }
 
     template <typename T>
     bool vector<T>::empty()
     {
-        return _size == 0;
+        return m_size == 0;
     }
 
     template <typename T>
     T& vector<T>::operator[](unsigned int index)
     {
-        return _arr[index];
+        return m_arr[index];
     }  
 
     template <typename T>
     void vector<T>::resize()
     {
-        T* temp_array = new T[_current_max_size];
-        memcpy(temp_array, _arr, _size * sizeof(T));
-        delete[] _arr;
-        _arr = temp_array;
+        T* temp_array = new T[m_current_max_size];
+        std::memcpy(temp_array, m_arr, m_size * sizeof(T));
+        delete[] m_arr;
+        m_arr = temp_array;
     }
 	
 } // namespace zrt 
