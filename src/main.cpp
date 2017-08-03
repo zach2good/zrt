@@ -15,6 +15,15 @@ int main()
 
 	vec.push_back(1);
 	assert(vec.size() == 1);
+
+    for (int i = 0; i < 1000; i++)
+    {
+        vec.push_back(i);
+    }
+
+    assert(vec[0] == 1);
+    assert(vec[1] == 0);
+    assert(vec[2] == 1);
 	
 	// Test Bigint
 	zrt::bigint biA("10000");
