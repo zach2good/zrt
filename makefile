@@ -11,7 +11,7 @@ OBJECTS = $(SOURCES:.cpp=.o)
  
 # Main target
 $(EXEC): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(EXEC) && $(EXEC)
+	$(CC) $(OBJECTS) -o $(EXEC)
  
 # To obtain object files
 %.o: %.cpp
