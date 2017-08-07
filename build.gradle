@@ -127,15 +127,15 @@ model {
 gradle.buildFinished {
     println "Running makefile..."
     
-    println "RunMakeClean"
-    task "RunMakeClean"(type: Exec) {
-        commandLine "cmd", "/c", "make clean"
-    }
-    tasks."RunMakeClean".execute()
-    
-    println "RunMake"
+    println "- Build & Run"
     task "RunMake"(type: Exec) {
         commandLine "cmd", "/c", "make"
     }
     tasks."RunMake".execute()
+    
+    println "- Clean"
+    task "RunMakeClean"(type: Exec) {
+        commandLine "cmd", "/c", "make clean"
+    }
+    tasks."RunMakeClean".execute()    
 }
