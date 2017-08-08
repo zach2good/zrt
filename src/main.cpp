@@ -16,7 +16,7 @@ int main()
 	vec.push_back(1);
 	assert(vec.size() == 1);
 
-    for (int i = 0; i < 1000; i++)
+    for (auto i = 0; i < 1000; i++)
     {
         vec.push_back(i);
     }
@@ -44,7 +44,7 @@ int main()
     ll.insert(2);
     assert(ll.size() == 2);
 
-    for (int i = 0; i < 50; i++)
+    for (auto i = 0; i < 50; i++)
     {
         ll.insert(i);
     }

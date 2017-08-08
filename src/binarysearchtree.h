@@ -14,7 +14,7 @@ namespace zrt
         node() : left(nullptr), right(nullptr), parent(nullptr) {}
         ~node() {}
 
-        void node(T &value) {
+        node(T &value) {
             data = value;
         };
 
@@ -25,7 +25,7 @@ namespace zrt
         bool operator< (T &other) {
             return (data < other);
         }
-    }
+    };
 
     template <class T>
 	class binarysearchtree {

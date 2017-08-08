@@ -3,6 +3,7 @@
 
 #include <stdexcept>
 #include <string>
+
 namespace zrt {
 
     template <typename T>
@@ -99,7 +100,6 @@ namespace zrt {
             }
 
             throw std::range_error("");
-            //return NULL; 
         }
 
         void remove(unsigned int i)

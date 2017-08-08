@@ -8,18 +8,18 @@ namespace zrt
 	class bigint {
 		public:
 
-			bigint(const char* input)
+            bigint(const char* input)
 			{
 				m_strInternal = std::string(input);
 			}
 			
-			bigint(std::string input)
+            explicit bigint(std::string input)
 			{
 				m_strInternal = input;
 			}
 			
 			template<typename T>
-			bigint(const T& obj) 
+            explicit bigint(const T& obj)
 			{ 
 				m_strInternal = std::to_string(obj); 
 			}
@@ -30,7 +30,7 @@ namespace zrt
 			}
 			
 			// Operators
-			inline bigint operator+(const bigint& other)
+			bigint operator+(const bigint& other)
 			{
 				size_t length = (this->m_strInternal.length() > other.m_strInternal.length()) ? 
 					this->m_strInternal.length() : other.m_strInternal.length();
@@ -55,7 +55,7 @@ namespace zrt
                 return "";
 			}
 			
-			std::string toString()
+			std::string toString() const
 			{
 				return m_strInternal;
 			}

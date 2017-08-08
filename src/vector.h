@@ -3,6 +3,7 @@
 
 #include <cstddef>
 #include <cstring> // memcpy
+#include <stdexcept>
 
 namespace zrt
 {
@@ -24,17 +25,19 @@ namespace zrt
 			// cend();
 			
 			// capacity
-			size_t size();
-			// capacity();
-			bool empty();
-			// max_size();
+			size_t size() const;
+            size_t capacity() const;
+			bool empty() const;
 			
 			// usage
 			void push_back(const T &);
+            void pop_front();
 			
 			// access
             T& operator[](unsigned int index);
-			// at()
+            T& at(unsigned int index);
+            T& front();
+            T& back();
 			
 		private:
 		
@@ -74,13 +77,25 @@ namespace zrt
 	}
 
     template <typename T>
-    std::size_t vector<T>::size()
+    void vector<T>::pop_front()
+    {
+        throw std::logic_error("Function not yet implemented");
+    }
+
+    template <typename T>
+    std::size_t vector<T>::size() const
     {
         return m_size;
     }
 
     template <typename T>
-    bool vector<T>::empty()
+    std::size_t vector<T>::capacity() const
+    {
+        return m_current_max_size;
+    }
+
+    template <typename T>
+    bool vector<T>::empty() const
     {
         return m_size == 0;
     }
@@ -90,6 +105,30 @@ namespace zrt
     {
         return m_arr[index];
     }  
+
+    template <typename T>
+    T& vector<T>::at(unsigned int index)
+    {
+        // Bounds checking
+        if (index >= m_size)
+        {
+            throw std::out_of_range("");
+        }
+
+        return m_arr[index];
+    }
+
+    template <typename T>
+    T& vector<T>::front()
+    {
+        return m_arr[0];
+    }
+
+    template <typename T>
+    T& vector<T>::back()
+    {
+        return m_arr[m_size - 1];
+    }
 
     template <typename T>
     void vector<T>::resize()
