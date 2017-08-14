@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cassert>
 
+
 int main()
 {
     std::cout << "Starting tests..." << std::endl;
@@ -25,15 +26,6 @@ int main()
     assert(vec[1] == 0);
     assert(vec[2] == 1);
 	
-	// Test Bigint
-	zrt::bigint biA("10000");
-	zrt::bigint biB("250000");
-	zrt::bigint biC = biA + biB;
-	
-    assert(biA.toString() == std::string("10000"));
-    assert(biB.toString() == std::string("250000"));
-    //assert(biC.toString() == std::string("260000"));
-
     // Test Linked List
     zrt::linkedlist<int> ll;
     assert(ll.empty());
